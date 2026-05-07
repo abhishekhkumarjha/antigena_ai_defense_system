@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local datasets and generated runtime data
+data/
+logs/
+pdf_requirements_extract.txt
+sample_network_data.csv
+
+# Frontend dependencies/build output
+ui/node_modules/
+ui/dist/
+ui/build/
+ui/coverage/
+ui/.env
+ui/.env.*
+!ui/.env.example
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.log

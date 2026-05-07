@@ -1,0 +1,6 @@
+{
+  "name": "Antigena AI Defense System",
+  "description": "An unsupervised self-learning AI defense dashboard inspired by Darktrace Antigena. Monitors real-time telemetry, scores anomalies, and triggers automated containment responses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
