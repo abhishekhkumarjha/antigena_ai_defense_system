@@ -31,6 +31,7 @@ import NetworkView from './components/NetworkView';
 import MonitorView from './components/MonitorView';
 import LogsView from './components/LogsView';
 import AnalyticsView from './components/AnalyticsView';
+import Chatbot from './components/SimpleChatbot';
 
 type View = 'dashboard' | 'network' | 'monitor' | 'logs' | 'analytics';
 
@@ -215,6 +216,9 @@ export default function App() {
 
       <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 blur-[120px] rounded-full -z-10" />
       <div className="fixed top-0 left-0 w-[300px] h-[300px] bg-emerald-600/5 blur-[120px] rounded-full -z-10" />
+      
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   );
 }

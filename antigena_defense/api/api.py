@@ -21,6 +21,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.simple_ensemble import SimpleEnsemble
 from utils.real_data_preprocessing import RealDataPipeline
 from response import ResponseEngine
+from chatbot.api import chatbot_router
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -36,11 +37,14 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:3003", "http://127.0.0.1:3000", "http://127.0.0.1:3001", "http://127.0.0.1:3002", "http://127.0.0.1:3003", "*"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "*"],
     allow_headers=["*"],
 )
+
+# Include chatbot router
+app.include_router(chatbot_router)
 
 # Global variables for models
 ensemble_engine = None

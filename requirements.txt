@@ -47,3 +47,7 @@ structlog>=21.1.0
 
 # Optional: For configuration management
 pyyaml>=5.4.0
+
+# AI Chatbot Support
+google-generativeai>=0.3.0
+aiohttp>=3.8.0
