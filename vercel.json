@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "antigena-ai-defense-system-frontend",
+  "builds": [
+    {
+      "src": "ui/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "ui/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "@api_url"
+  },
+  "functions": {},
+  "installCommand": "cd ui && npm install",
+  "buildCommand": "cd ui && npm run build",
+  "outputDirectory": "ui/dist"
+}

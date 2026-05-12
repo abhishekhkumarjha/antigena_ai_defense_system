@@ -1,0 +1,14 @@
+# Ignore backend files for frontend deployment
+antigena_defense/
+requirements.txt
+render.yaml
+setup_chatbot.py
+test_*.py
+DEPLOYMENT_GUIDE.md
+.env
+*.pkl
+models/
+config/
+logs/
+__pycache__/
+*.pyc
