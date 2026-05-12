@@ -10,12 +10,11 @@ tensorflow>=2.8.0
 shap>=0.41.0
 
 # API Framework
-fastapi>=0.68.0
+fastapi>=0.104.0
 uvicorn>=0.15.0
 pydantic>=1.8.0
 
-# Async Support
-asyncio
+# Async Support (built-in module, no package needed)
 
 # Visualization (optional, for SHAP plots)
 matplotlib>=3.5.0
@@ -23,8 +22,7 @@ matplotlib>=3.5.0
 # Model Persistence
 joblib>=1.1.0
 
-# Email Support (for alerts)
-smtplib
+# Email Support (for alerts) - built-in module, no package needed
 
 # HTTP Requests (for webhooks)
 requests>=2.25.0
