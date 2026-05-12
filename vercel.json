@@ -1,9 +1,15 @@
 {
   "version": 2,
   "name": "antigena-defense-system-prod",
-  "buildCommand": "cd ui && npm install && npm run build",
-  "outputDirectory": "ui/dist",
-  "installCommand": "cd ui && npm install",
+  "builds": [
+    {
+      "src": "ui/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
