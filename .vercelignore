@@ -1,4 +1,4 @@
-# Ignore backend files for frontend deployment
+# Ignore all backend files for frontend deployment
 antigena_defense/
 requirements.txt
 render.yaml
@@ -12,3 +12,14 @@ config/
 logs/
 __pycache__/
 *.pyc
+*.py
+
+# Ignore any Python files in root
+main.py
+*.py
+
+# Ignore other non-frontend files
+.git/
+.gitignore
+README.md
+*.md
