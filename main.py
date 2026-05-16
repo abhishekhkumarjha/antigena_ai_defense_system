@@ -14,6 +14,12 @@ import sys
 # Add the antigena_defense directory to Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'antigena_defense'))
 
+# Expose the FastAPI app for deployment detection.
+try:
+    from antigena_defense.api.api import app as app
+except Exception as exc:
+    app = None  # Deployment auto-detection may still require this symbol.
+
 from antigena_defense.utils.preprocessing import DataPipeline
 from antigena_defense.models.isolation_forest import IsolationForestModel
 from antigena_defense.models.one_class_svm import OneClassSVMModel
