@@ -1,22 +1,17 @@
 {
   "version": 2,
   "name": "antigena-defense-system-prod",
-  "builds": [
+  "installCommand": "cd ui && npm ci",
+  "buildCommand": "cd ui && npm run build",
+  "outputDirectory": "ui/dist",
+  "rewrites": [
     {
-      "src": "ui/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "env": {
-    "VITE_API_URL": "https://antigena-backend.onrender.com"
+    "VITE_API_URL": "https://antigena-ai-defense-system.onrender.com",
+    "VITE_ANTIGENA_API_URL": "https://antigena-ai-defense-system.onrender.com"
   }
 }

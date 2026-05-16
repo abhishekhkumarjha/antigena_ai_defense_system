@@ -1,6 +1,13 @@
 import { ActionType, TelemetryEvent, ThreatLevel } from './types';
 
-const API_BASE_URL = import.meta.env.VITE_ANTIGENA_API_URL ?? import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
+const DEFAULT_API_URL = import.meta.env.PROD
+  ? 'https://antigena-ai-defense-system.onrender.com'
+  : 'http://localhost:8000';
+const API_BASE_URL = (
+  import.meta.env.VITE_ANTIGENA_API_URL ??
+  import.meta.env.VITE_API_URL ??
+  DEFAULT_API_URL
+).replace(/\/$/, '');
 const FEATURE_COUNT = 42;
 
 interface PredictionResponse {
