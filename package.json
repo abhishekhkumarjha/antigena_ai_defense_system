@@ -1,0 +1,12 @@
+{
+  "name": "antigena-defense-system-prod",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "npm --prefix ui run build",
+    "install:ui": "npm --prefix ui ci",
+    "dev": "npm --prefix ui run dev"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "antigena-defense-system-prod",
+  "framework": "vite",
   "installCommand": "cd ui && npm ci",
   "buildCommand": "cd ui && npm run build",
   "outputDirectory": "ui/dist",
