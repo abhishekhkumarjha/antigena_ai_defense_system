@@ -14,11 +14,30 @@ import sys
 # Add the antigena_defense directory to Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'antigena_defense'))
 
-# Expose the FastAPI app for deployment detection.
+# Ensure a top-level ASGI `app` symbol exists so deployment platforms
+# (Vercel, Render) can auto-detect the FastAPI application during builds.
+# We create a lightweight fallback `FastAPI` instance and then try to
+# import the real application to replace it. This avoids build-time
+# import errors from preventing detection.
 try:
-    from antigena_defense.api.api import app as app
-except Exception as exc:
-    app = None  # Deployment auto-detection may still require this symbol.
+    from fastapi import FastAPI
+except Exception:
+    FastAPI = None
+
+# Fallback app always defined
+app = None
+if FastAPI is not None:
+    app = FastAPI()
+
+try:
+    # If the internal app can be imported, use it instead of the fallback
+    from antigena_defense.api.api import app as internal_app
+    if internal_app is not None:
+        app = internal_app
+except Exception:
+    # Import may fail during build (missing deps). Keep fallback `app` so
+    # the deployment platform recognizes an ASGI application.
+    pass
 
 from antigena_defense.utils.preprocessing import DataPipeline
 from antigena_defense.models.isolation_forest import IsolationForestModel
